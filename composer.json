@@ -1,0 +1,22 @@
+{
+    "name": "sxbrsky/clock",
+    "description": "Provides flexible tools for handling time-related operations in PHP applications.",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Dominik Szamburski",
+            "email": "dominikszamburski99@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.2",
+        "psr/clock": "dev-master"
+    },
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Sxbrsky\\Clock\\": "src/"
+        }
+    }
+}

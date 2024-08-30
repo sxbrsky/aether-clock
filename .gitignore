@@ -4,3 +4,6 @@
 /.run/
 /.vscode/
 
+composer.lock
+composer.phar
+/vendor/
