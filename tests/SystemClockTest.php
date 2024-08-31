@@ -18,48 +18,54 @@ use Sxbrsky\Clock\Clock;
 use Sxbrsky\Clock\SystemClock;
 
 #[CoversClass(SystemClock::class)]
-class SystemClockTest extends TestCase {
-  public function testInstanceOfClockInterface(): void {
-    $clock = new SystemClock();
+class SystemClockTest extends TestCase
+{
+    public function testInstanceOfClockInterface(): void
+    {
+        $clock = new SystemClock();
 
-    self::assertInstanceOf(Clock::class, $clock);
-    self::assertInstanceOf(ClockInterface::class, $clock);
-  }
+        self::assertInstanceOf(Clock::class, $clock);
+        self::assertInstanceOf(ClockInterface::class, $clock);
+    }
 
-  public function testSleep(): void {
-    $clock = new SystemClock();
+    public function testSleep(): void
+    {
+        $clock = new SystemClock();
 
-    $before = \microtime(true);
-    $clock->sleep(1.25);
-    $after = (float) $clock->now()->format('U.u');
+        $before = \microtime(true);
+        $clock->sleep(1.25);
+        $after = (float) $clock->now()->format('U.u');
 
-    self::assertGreaterThanOrEqual($before + 1.25, $after);
-  }
+        self::assertGreaterThanOrEqual($before + 1.25, $after);
+    }
 
-  public function testWithTimeZone(): void {
-    $clock = new SystemClock();
-    $newClock = $clock->withTimeZone(new \DateTimeZone('Europe/Warsaw'));
+    public function testWithTimeZone(): void
+    {
+        $clock = new SystemClock();
+        $newClock = $clock->withTimeZone(new \DateTimeZone('Europe/Warsaw'));
 
-    self::assertNotSame($newClock, $clock);
-    self::assertSame('Europe/Warsaw', $newClock->now()->getTimezone()->getName());
-  }
+        self::assertNotSame($newClock, $clock);
+        self::assertSame('Europe/Warsaw', $newClock->now()->getTimezone()->getName());
+    }
 
-  public function testWithTimezoneUnknownException(): void {
-    self::expectException(\DateInvalidTimeZoneException::class);
-    new SystemClock('zaqw');
-  }
+    public function testWithTimezoneUnknownException(): void
+    {
+        self::expectException(\DateInvalidTimeZoneException::class);
+        new SystemClock('zaqw');
+    }
 
-  public function testNow(): void {
-    $clock = new SystemClock();
+    public function testNow(): void
+    {
+        $clock = new SystemClock();
 
-    $before = new \DateTimeImmutable();
-    \usleep(10);
-    $now = $clock->now();
-    \usleep(10);
-    $after = new \DateTimeImmutable();
+        $before = new \DateTimeImmutable();
+        \usleep(10);
+        $now = $clock->now();
+        \usleep(10);
+        $after = new \DateTimeImmutable();
 
-    self::assertSame($now->getTimezone()->getName(), Clock::DEFAULT_TIMEZONE);
-    self::assertGreaterThan($before, $now);
-    self::assertLessThan($after, $now);
-  }
+        self::assertSame($now->getTimezone()->getName(), Clock::DEFAULT_TIMEZONE);
+        self::assertGreaterThan($before, $now);
+        self::assertLessThan($after, $now);
+    }
 }
