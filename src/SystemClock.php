@@ -29,6 +29,18 @@ class SystemClock implements Clock
     /**
      * {@inheritDoc}
      */
+    public function __toString(): string
+    {
+        return \sprintf(
+            '%s (%s)',
+            $this->now()->format(\DateTimeInterface::ISO8601_EXPANDED),
+            $this->now()->getTimezone()->getName()
+        );
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function now(): DateTimeImmutable
     {
         return new \DateTimeImmutable('now', $this->timezone);

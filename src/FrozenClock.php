@@ -40,6 +40,18 @@ class FrozenClock implements Clock
     /**
      * {@inheritDoc}
      */
+    public function __toString(): string
+    {
+        return \sprintf(
+            '%s (%s)',
+            $this->now()->format(\DateTimeInterface::ISO8601_EXPANDED),
+            $this->now()->getTimezone()->getName()
+        );
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     #[\Override]
     public function now(): \DateTimeImmutable
     {
@@ -49,7 +61,6 @@ class FrozenClock implements Clock
     /**
      * {@inheritDoc}
      */
-    #[\Override]
     public function withTimezone(\DateTimeZone|string $timezone): static
     {
         if (\is_string($timezone)) {
@@ -65,7 +76,6 @@ class FrozenClock implements Clock
     /**
      * {@inheritDoc}
      */
-    #[\Override]
     public function sleep(float|int $seconds): void
     {
         $wholeSeconds = \floor($seconds);

@@ -13,7 +13,7 @@ namespace Sxbrsky\Clock;
 
 use Psr\Clock\ClockInterface;
 
-interface Clock extends ClockInterface
+interface Clock extends ClockInterface, \Stringable
 {
     /**
      * Default timezone.
