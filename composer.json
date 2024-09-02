@@ -3,20 +3,32 @@
     "description": "Provides flexible tools for handling time-related operations in PHP applications.",
     "license": "MIT",
     "type": "library",
+    "keywords": [
+        "psr-20",
+        "clock",
+        "time"
+    ],
     "authors": [
         {
             "name": "Dominik Szamburski",
             "email": "dominikszamburski99@gmail.com"
         }
     ],
+    "support": {
+        "issues": "https://github.com/sxbrsky/php-clock/issues",
+        "source": "https://github.com/sxbrsky/php-clock"
+    },
     "require": {
-        "php": ">=8.3",
+        "php": ">=8.2",
         "psr/clock": "dev-master"
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "*",
+        "friendsofphp/php-cs-fixer": "dev-master",
         "phpstan/phpstan": "2.0.x-dev",
         "phpunit/phpunit": "^11.4@dev"
+    },
+    "provide": {
+        "psr/clock": "1.0.0"
     },
     "minimum-stability": "dev",
     "autoload": {
@@ -28,5 +40,9 @@
         "psr-4": {
             "Sxbrsky\\Clock\\Tests\\": "tests/"
         }
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true
     }
 }

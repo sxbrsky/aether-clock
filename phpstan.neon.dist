@@ -1,4 +1,5 @@
 parameters:
+	tmpDir: .phpstan.cache
 	level: max
 	treatPhpDocTypesAsCertain: false
 	paths:
