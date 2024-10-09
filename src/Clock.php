@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the sxbrsky/clock.
+ * This file is part of the aether/aether.
  *
  * Copyright (C) 2024 Dominik Szamburski
  *
@@ -9,7 +9,7 @@
  * of the MIT license. See the LICENSE file for details.
  */
 
-namespace Sxbrsky\Clock;
+namespace Aether\Clock;
 
 use Psr\Clock\ClockInterface;
 
@@ -18,7 +18,7 @@ interface Clock extends ClockInterface, \Stringable
     /**
      * Default timezone.
      */
-    public const string DEFAULT_TIMEZONE = 'UTC';
+    public const DEFAULT_TIMEZONE = 'UTC';
 
     /**
      * Returns the current time as a DateTimeImmutable Object

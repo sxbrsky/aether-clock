@@ -9,13 +9,13 @@
  * of the MIT license. See the LICENSE file for details.
  */
 
-namespace Sxbrsky\Clock\Tests;
+namespace Aether\Tests\Clock;
 
+use Aether\Clock\Clock;
+use Aether\Clock\SystemClock;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 use Psr\Clock\ClockInterface;
-use Sxbrsky\Clock\Clock;
-use Sxbrsky\Clock\SystemClock;
 
 #[CoversClass(SystemClock::class)]
 class SystemClockTest extends TestCase
@@ -42,7 +42,7 @@ class SystemClockTest extends TestCase
     public function testWithTimeZone(): void
     {
         $clock = new SystemClock();
-        $newClock = $clock->withTimeZone(new \DateTimeZone('Europe/Warsaw'));
+        $newClock = $clock->withTimezone(new \DateTimeZone('Europe/Warsaw'));
 
         self::assertNotSame($newClock, $clock);
         self::assertSame('Europe/Warsaw', $newClock->now()->getTimezone()->getName());

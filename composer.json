@@ -1,48 +1,31 @@
 {
-    "name": "sxbrsky/clock",
-    "description": "Provides flexible tools for handling time-related operations in PHP applications.",
-    "license": "MIT",
-    "type": "library",
-    "keywords": [
-        "psr-20",
-        "clock",
-        "time"
-    ],
-    "authors": [
-        {
-            "name": "Dominik Szamburski",
-            "email": "dominikszamburski99@gmail.com"
-        }
-    ],
-    "support": {
-        "issues": "https://github.com/sxbrsky/php-clock/issues",
-        "source": "https://github.com/sxbrsky/php-clock"
-    },
-    "require": {
-        "php": ">=8.2",
-        "psr/clock": "dev-master"
-    },
-    "require-dev": {
-        "friendsofphp/php-cs-fixer": "dev-master",
-        "phpstan/phpstan": "2.0.x-dev",
-        "phpunit/phpunit": "^11.4@dev"
-    },
-    "provide": {
-        "psr/clock": "1.0.0"
-    },
-    "minimum-stability": "dev",
-    "autoload": {
-        "psr-4": {
-            "Sxbrsky\\Clock\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Sxbrsky\\Clock\\Tests\\": "tests/"
-        }
-    },
-    "config": {
-        "preferred-install": "dist",
-        "sort-packages": true
+  "name": "aether/clock",
+  "description": "The Aether clock package.",
+  "license": "MIT",
+  "type": "library",
+  "support": {
+    "issues": "https://github.com/sxbrsky/aether/issues",
+    "source": "https://github.com/sxbrsky/aether"
+  },
+  "require": {
+    "php": "^8.2",
+    "psr/clock": "^1.0"
+  },
+  "provide": {
+    "psr/clock-implementation": "*"
+  },
+  "minimum-stability": "dev",
+  "autoload": {
+    "psr-4": {
+      "Aether\\Clock\\": "src/"
     }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Aether\\Tests\\Clock\\": "tests/"
+    }
+  },
+  "config": {
+    "sort-packages": true
+  }
 }

@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the sxbrsky/clock.
+ * This file is part of the aether/aether.
  *
  * Copyright (C) 2024 Dominik Szamburski
  *
@@ -9,7 +9,7 @@
  * of the MIT license. See the LICENSE file for details.
  */
 
-namespace Sxbrsky\Clock;
+namespace Aether\Clock;
 
 use DateTimeImmutable;
 
@@ -55,7 +55,7 @@ class SystemClock implements Clock
             try {
                 $timezone = new \DateTimeZone($timezone);
             } catch (\Exception $e) {
-                throw new \DateInvalidTimeZoneException($e->getMessage(), $e->getCode(), $e);
+                throw new \DateInvalidTimeZoneException($e->getMessage(), (int) $e->getCode(), $e);
             }
         }
 

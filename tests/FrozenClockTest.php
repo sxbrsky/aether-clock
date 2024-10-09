@@ -9,13 +9,13 @@
  * of the MIT license. See the LICENSE file for details.
  */
 
-namespace Sxbrsky\Clock\Tests;
+namespace Aether\Tests\Clock;
 
+use Aether\Clock\Clock;
+use Aether\Clock\FrozenClock;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 use Psr\Clock\ClockInterface;
-use Sxbrsky\Clock\Clock;
-use Sxbrsky\Clock\FrozenClock;
 
 #[CoversClass(FrozenClock::class)]
 
@@ -29,10 +29,10 @@ class FrozenClockTest extends TestCase
         self::assertInstanceOf(ClockInterface::class, $clock);
     }
 
-    public function testWithTimeZone(): void
+    public function testWithTimezone(): void
     {
         $clock = new FrozenClock();
-        $newClock = $clock->withTimeZone(new \DateTimeZone('Europe/Warsaw'));
+        $newClock = $clock->withTimezone(new \DateTimeZone('Europe/Warsaw'));
 
         self::assertNotSame($newClock, $clock);
         self::assertSame('Europe/Warsaw', $newClock->now()->getTimezone()->getName());

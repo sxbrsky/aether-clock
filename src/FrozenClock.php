@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the sxbrsky/clock.
+ * This file is part of the aether/aether.
  *
  * Copyright (C) 2024 Dominik Szamburski
  *
@@ -9,7 +9,7 @@
  * of the MIT license. See the LICENSE file for details.
  */
 
-namespace Sxbrsky\Clock;
+namespace Aether\Clock;
 
 class FrozenClock implements Clock
 {
@@ -82,13 +82,13 @@ class FrozenClock implements Clock
         $microSeconds = \round(($seconds - $wholeSeconds) * 1E6);
 
         if ($seconds > 0) {
-            if ($dt = $this->datetime->modify("$wholeSeconds second")) {
+            if (($dt = $this->datetime->modify("$wholeSeconds second")) !== false) {
                 $this->datetime = $dt;
             }
         }
 
         if ($microSeconds > 0) {
-            if ($dt = $this->datetime->modify("$microSeconds microsecond")) {
+            if (($dt = $this->datetime->modify("$microSeconds microsecond")) !== false) {
                 $this->datetime = $dt;
             }
         }
