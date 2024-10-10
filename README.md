@@ -1,1 +1,1 @@
-# Aether clock component
+# Aether Clock Component
